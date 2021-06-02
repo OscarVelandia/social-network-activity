@@ -16,7 +16,7 @@ The resolver of every folder is @folderName, E.G. @features imports the files in
   Folder with every React component with their corresponding *[componentName].module.css*.
 
 * ### features
-  Folder with every RTK slice, as a convention the name of every slice is featureName + Slice suffix, E.G. counterSlice.ts.
+  Folder with every feature with a RTK slice and feature components slice, as a convention the name of every slice is featureName + Slice suffix, E.G. counterSlice.ts.
 
   In the counterSlice.ts file is a *slice* example.
 
