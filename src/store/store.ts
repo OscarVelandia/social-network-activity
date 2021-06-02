@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { counterReducer } from '@features';
-import { pokemonApi } from '@services';
+import { postsReducer } from '@features/posts';
+import { postsAndCommentsApi } from '@services';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    [pokemonApi.reducerPath]: pokemonApi.reducer,
+    posts: postsReducer,
+    [postsAndCommentsApi.reducerPath]: postsAndCommentsApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(pokemonApi.middleware);
+    return getDefaultMiddleware().concat(postsAndCommentsApi.middleware);
   },
 });
 
