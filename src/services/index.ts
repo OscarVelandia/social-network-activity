@@ -1,1 +1,1 @@
-export * from './pokemonApi';
+export * from './postsAndCommentsApi';
