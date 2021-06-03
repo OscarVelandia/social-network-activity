@@ -34,6 +34,8 @@ module.exports = {
         extensions: ['.tsx'],
       },
     ],
+    // Is better set default props in props destructuring because are visible when hover component with ctrl
+    'react/require-default-props': 'off',
     // Personal preferences
     'import/extensions': 'off',
   },
