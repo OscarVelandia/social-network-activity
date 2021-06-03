@@ -1,2 +1,1 @@
-// Replace export {} by "export * from './fileName';"
-export {};
+export * from './Spinner';
