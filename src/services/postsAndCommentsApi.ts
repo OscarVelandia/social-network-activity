@@ -21,10 +21,10 @@ export const postsAndCommentsApi = createApi({
     baseUrl: 'https://jsonplaceholder.typicode.com/',
   }),
   endpoints: (builder) => ({
-    getComments: builder.query<PostComment, void>({
+    getComments: builder.query<PostComment[], void>({
       query: () => `comments`,
     }),
-    getPosts: builder.query<Post, void>({
+    getPosts: builder.query<Post[], void>({
       query: () => `posts`,
     }),
   }),
