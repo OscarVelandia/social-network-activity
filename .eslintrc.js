@@ -36,8 +36,14 @@ module.exports = {
     ],
     // Is better set default props in props destructuring because are visible when hover component with ctrl
     'react/require-default-props': 'off',
+    // Gives errors incorrectly because components are imported in an index to use resolvers
+    'import/no-cycle': 'off',
+    // note you must disable the base rule as it can report incorrect errors
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
     // Personal preferences
     'import/extensions': 'off',
+    'react/prop-types': 'off', // This project doesn't use prop-types
   },
   settings: {
     'import/resolver': {
