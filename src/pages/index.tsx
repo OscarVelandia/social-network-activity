@@ -1,10 +1,10 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import Head from 'next/head';
-import { addNewComment, addCommentsToPost } from '@features/posts';
+import { addNewComment, addCommentsToPost, PostCard } from '@features/posts';
 import { useGetCommentsQuery, useGetPostsQuery } from '@services';
 import { useAppDispatch, useAppSelector } from '@store';
 import { Spinner } from '@components';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -26,19 +26,15 @@ export default function Home() {
 
   if (getCommentsQuery.isLoading || getPostsQuery.isLoading || !postWithComments) {
     return (
-      <div
-        style={{
-          height: '100vh',
-          width: '100vw',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <div className={styles.spinnerWrapper}>
         <Spinner />
       </div>
     );
   }
+
+  const PostWithComments = postWithComments.map(({ body, comments, id, title }) => {
+    return <PostCard key={id} body={body} comments={comments} title={title} />;
+  });
 
   return (
     <div className={styles.container}>
@@ -49,21 +45,7 @@ export default function Home() {
       </Head>
       <main>
         <h1>Hola</h1>
-        {postWithComments.map(({ id, title, comments }) => {
-          return (
-            <div key={id}>
-              <div>
-                <h2>{title}</h2>
-                {/* <button onClick={() => setPostToShowComments(id)} type="button">
-             Show comments
-           </button> */}
-              </div>
-              {comments.map((comment) => {
-                return <p key={comment.id}>{JSON.stringify(comment)}</p>;
-              })}
-            </div>
-          );
-        })}
+        <div className={styles.cardsWrapper}>{PostWithComments}</div>
       </main>
     </div>
   );
