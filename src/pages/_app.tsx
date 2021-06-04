@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { store } from '@store';
@@ -8,7 +8,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       {/* This is NextJs default code */}
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <Component {...pageProps} />{' '}
+      <Component {...pageProps} />
+      <div id="modal-root" />
     </Provider>
   );
 }
