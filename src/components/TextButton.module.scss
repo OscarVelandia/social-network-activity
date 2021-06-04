@@ -1,0 +1,11 @@
+.container {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-weight: bolder;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: 1px solid black;
+  }
+}
