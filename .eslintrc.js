@@ -41,9 +41,13 @@ module.exports = {
     // note you must disable the base rule as it can report incorrect errors
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
+    // This project doesn't use prop-types
+    'react/prop-types': 'off',
+    // Redux reducers doesn't need return and this rule expect always a return
+    'consistent-return': 'off',
     // Personal preferences
     'import/extensions': 'off',
-    'react/prop-types': 'off', // This project doesn't use prop-types
+    'no-use-before-define': ['error', { functions: false }],
   },
   settings: {
     'import/resolver': {
