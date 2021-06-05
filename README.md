@@ -9,6 +9,16 @@ Config taken from [here](https://github.com/OscarVelandia/opinionated-nextjs-con
 3. Open the project in **[local](http://localhost:3000)**
 4. Enjoy
 
+## Decisions
+* Since the idea is promote the company, I use NextJs to create static pages and improve the SEO
+* I use Redux Toolkit to implement Redux and RTK Query to manage the Server State, this last is in Beta, but I wanted to check how it is working
+* Components are created from the ground, a component library could be used, but I think is too much for 3 components
+
+## To Improve
+* Save comments in localStorage to recover data on refresh
+* Improve how the new comments are added, but for now, it works nice
+* Add tests
+
 ## Project folder config
 The resolver of every folder is @folderName, E.G. @features imports the files in the features folder, don't forget add the export of every file in index.tsx  
 
