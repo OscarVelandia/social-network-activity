@@ -1,10 +1,12 @@
 import { createApi, fetchBaseQuery } from '@rtk-incubator/rtk-query/react';
 
+export type EmailInput = `${string}@${string}.${string}`;
+
 export interface PostComment {
   postId: number;
   id: number;
   name: string;
-  email: `${string}@${string}.${string}`;
+  email: EmailInput;
   body: string;
 }
 
