@@ -1,0 +1,24 @@
+.allCommentsContainer {
+  overflow-y: auto;
+  padding: 0 1rem;
+  padding-top: 1rem;
+}
+
+.commentContainer {
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+  div {
+    text-align: end;
+    font-weight: bolder;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
