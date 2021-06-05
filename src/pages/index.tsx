@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
-import { addNewComment, addCommentsToPost, PostCard } from '@features/posts';
+import { Spinner } from '@components';
+import { addCommentsToPost, initializeCommentsWithPostIdKey, PostCard } from '@features/posts';
 import { useGetCommentsQuery, useGetPostsQuery } from '@services';
 import { useAppDispatch, useAppSelector } from '@store';
-import { Spinner } from '@components';
 import styles from '../styles/Home.module.scss';
 
 export default function Home() {
@@ -18,7 +18,8 @@ export default function Home() {
       const { data: posts } = getPostsQuery;
 
       if (comments && posts) {
-        dispatch(addCommentsToPost({ comments, posts }));
+        dispatch(initializeCommentsWithPostIdKey({ comments }));
+        dispatch(addCommentsToPost({ posts }));
       }
     },
     [dispatch, getCommentsQuery, getPostsQuery],
@@ -32,10 +33,6 @@ export default function Home() {
     );
   }
 
-  const PostWithComments = postWithComments.map(({ body, comments, id, title }) => {
-    return <PostCard key={id} body={body} comments={comments} title={title} />;
-  });
-
   return (
     <div className={styles.container}>
       <Head>
@@ -44,8 +41,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Hola</h1>
-        <div className={styles.cardsWrapper}>{PostWithComments}</div>
+        <h1>Social network activity</h1>
+        <div className={styles.cardsWrapper}>
+          {postWithComments.map(({ body, comments, id, title }) => {
+            return <PostCard key={id} body={body} comments={comments} postId={id} title={title} />;
+          })}
+        </div>
       </main>
     </div>
   );
