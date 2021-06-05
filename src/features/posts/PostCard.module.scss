@@ -1,18 +1,26 @@
-.commentWrapper {
-  border-bottom: 1px solid black;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+.postContainer {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid black;
 
   div {
-    text-align: end;
-    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.5rem;
   }
+}
 
-  &:first-child {
-    padding-top: 0;
-  }
-
-  &:last-child {
-    border: none;
-  }
+.commentsAndInputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  height: calc(70vh - 5rem);
+  // padding: 1rem 0;
 }
