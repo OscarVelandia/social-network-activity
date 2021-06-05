@@ -5,14 +5,16 @@ type ButtonType = 'button' | 'submit' | 'reset';
 
 interface TextButtonProps {
   fontSize?: string;
+  hasHoverFeedback?: boolean;
   isDisabled?: boolean;
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   text: string;
   type?: ButtonType;
 }
 
 export const TextButton = ({
   fontSize = '1.1rem',
+  hasHoverFeedback = true,
   isDisabled,
   onClick,
   text,
@@ -20,9 +22,9 @@ export const TextButton = ({
 }: TextButtonProps) => {
   return (
     <button
-      className={styles.container}
+      className={`${styles.container} ${hasHoverFeedback ? styles.hasHoverFeedback : ''}`}
       disabled={isDisabled}
-      onClick={onClick}
+      onClick={type === 'submit' ? undefined : onClick}
       style={{ fontSize }}
       // This is an eslint bug https://github.com/yannickcr/eslint-plugin-react/issues/1555
       // eslint-disable-next-line react/button-has-type

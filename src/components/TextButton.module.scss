@@ -4,7 +4,9 @@
   padding: 0;
   font-weight: bolder;
   cursor: pointer;
+}
 
+.hasHoverFeedback {
   &:hover {
     border-bottom: 1px solid black;
   }
