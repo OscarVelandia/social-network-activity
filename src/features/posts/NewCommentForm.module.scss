@@ -1,0 +1,24 @@
+.inputsWithButtonContainer {
+  display: flex;
+  margin: 0 1rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+
+  textarea {
+    padding: 0.5rem;
+    resize: none;
+  }
+
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+}
