@@ -3,7 +3,7 @@ import { FC, FormEvent, MouseEvent } from 'react';
 import { TextButton } from '@components';
 import styles from './Modal.module.scss';
 
-type SubmitEvent = FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>;
+export type SubmitEvent = FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>;
 
 interface IModalContainerProps {
   height?: string;
@@ -61,12 +61,14 @@ export const Modal: FC<IModalProps> = ({
           onSubmit={handleFormTagSubmit}
           style={{
             /*
-             * 9.5 is for:
+             * 8 is for:
              *   header: 4rem,
              *   gap: 1rem,
              *   buttons: 3rem,
              */
-            gridTemplateRows: `calc(${height} - 8rem) 3rem`,
+            gridTemplateRows: shouldShowButtons
+              ? `calc(${height} - 8rem) 3rem`
+              : `calc(${height} - 5rem)`,
           }}
         >
           <div className={styles.childrenContainer}>{children}</div>
