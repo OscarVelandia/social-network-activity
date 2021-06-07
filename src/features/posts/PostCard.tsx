@@ -81,7 +81,7 @@ export function PostCard({ body, comments, postId, title }: PostCardProps) {
       >
         <div className={styles.commentsAndInputContainer}>
           <Comments comments={comments} />
-          <NewCommentForm onInputChange={handleInputChange} newCommentForm={newCommentForm} />
+          <NewCommentForm onInputChange={handleInputChange} form={newCommentForm} />
         </div>
       </Modal>
     </>
