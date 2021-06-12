@@ -16,6 +16,7 @@ Config taken from [here](https://github.com/OscarVelandia/opinionated-nextjs-con
 
 ## To Improve
 * Save comments in localStorage to recover data on refresh
+* When user adds a new comment, the scroll should be at the start of the modal
 * Improve how the new comments are added, but for now, it works nice
 * Add tests
 
